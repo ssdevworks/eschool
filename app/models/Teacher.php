@@ -12,8 +12,8 @@ class Teacher extends Eloquent {
 		'mobile' => 'required|digits:10',
 		'doj' => 'required|date',
 		'subject' => 'required|integer',
-		'qualification' => 'alphaNum|max:70',
-		'experience' => 'alphaNum|max:70',
+		'qualification' => 'max:70',
+		'experience' => 'max:30',
 		'marital_status' => 'integer',
 		'blood_group' => 'integer',
 	);

@@ -4,9 +4,13 @@
             <div class="panel-heading">
                 Fields with <label class="required_red">*</label> are mandatory
             </div>
+
             <div class="panel-body">
-                <div class="row">
-                    <form name = 'addTeacher' role="form" ng-controller="addTeacherController" ng-submit="addNewTeacher()" novalidate>
+                 <form name = 'addTeacher' role="form" ng-controller="addTeacherController" ng-submit="addNewTeacher()" novalidate>
+                <div class="alert" ng-show="msgDisplay" ng-class="{'alert-success': sucClass, 'alert-danger': errClass}">
+                 {{notifyMsg}}
+                </div>
+                <div class="row">                   
                     <div class="col-lg-6">
                         
                             <div class="form-group required" ng-class="{'has-error' : hasError('fname')}">
@@ -110,10 +114,11 @@
                             </select>
                         </div>
                     </div>
-                </form>
+                
                     <!-- /.col-lg-6 (nested) -->
                 </div>
                 <!-- /.row (nested) -->
+                </form>
             </div>
             <!-- /.panel-body -->
         </div>

@@ -16,6 +16,7 @@
     })
   $scope.addNewTeacher = function() {
     $scope.submitted = true;
+    $scope.msgDisplay = false;
     if(!$scope.addTeacher.$valid) {return;}
     $http({
           method: 'POST',
@@ -23,8 +24,12 @@
           headers: { 'Content-Type' : 'application/x-www-form-urlencoded' },
           data: $.param($scope.teacher)
         }).success(function(data){
-          console.log(data)
 
+          console.log(data)
+          $scope.msgDisplay = true;
+          $scope.sucClass = data.success;
+          $scope.errClass = !data.success;
+          $scope.notifyMsg = data.message;
         })
     console.log('form submitted');
   } 

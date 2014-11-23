@@ -45,6 +45,11 @@ class TeacherController extends \BaseController {
 			$response  = array('success' => false, 'error_code' => 1, 'message' => $errorMsg);		
 		} else {
 			
+			$user = new User;
+			$user->email = Input::get('email');
+			$user->password = Hash::make('testpassword');
+			//$user->teacher()->associate($teacher);
+			$user->save();
 			$teacher = new Teacher;
 			$teacher->fname = Input::get('fname');
 			$teacher->lname = Input::get('lname');
@@ -55,14 +60,11 @@ class TeacherController extends \BaseController {
 			$teacher->subject = Input::get('subject');
 			$teacher->qualification = Input::get('qualification');
 			$teacher->experience = Input::get('experience');
-			$teacher->marital_status = Input::get('marital_status');
-			$teacher->blood_group = Input::get('blood_group');
+			$teacher->marital_status = Input::get('marital');
+			$teacher->blood_group = Input::get('bloodgrp');
+			$teacher->user_id = $user->id;
+			$teacher->save();
 
-			$user = new User;
-			$user->email = Input::get('email');
-			$user->password = Hash::make('testpassword');
-			$user->teacher()->associate($teacher);
-			$user->save();
 			$response  = array('success' => true, 'error_code' => 0, 'message' => 'success');
 
 		}
