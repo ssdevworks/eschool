@@ -51,6 +51,7 @@ Route::group(array('prefix' => 'api'), function() {
 		//Route::post('login', array('uses' => 'HomeController@doLogin'));
 		Route::get('teacher/new', array('uses' => 'TeacherController@create'));
 		Route::post('teacher/new', array('uses' => 'TeacherController@store'));
+		Route::get('teacher/list', array('uses' => 'TeacherController@listView'));
 	});
 });
 

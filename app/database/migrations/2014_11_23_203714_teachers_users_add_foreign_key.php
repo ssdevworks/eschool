@@ -26,7 +26,11 @@ class TeachersUsersAddForeignKey extends Migration {
 	 */
 	public function down()
 	{
-		$table->dropForeign('teachers_user_id_foreign');
+		Schema::table('teachers', function($table)
+		{
+			$table->dropForeign('teachers_user_id_foreign');
+		}
+		
 	}
 
 }

@@ -61,6 +61,7 @@ app.config([
     })
     .state('teacher', {
     url: '/teacher',
+    abstract: true,
     templateUrl: '/partials/teacher.html',
     data : { stateTitle: 'List' }
     /*controller: function($scope){
@@ -71,6 +72,11 @@ app.config([
     url: '/new',
     templateUrl: '/partials/teacher.new.html',
     data : { stateTitle: 'Add New Teacher' }
+    })
+    .state('teacher.list', {
+    url: '',
+    templateUrl: '/partials/teacher.list.html',
+    data : { stateTitle: 'List Teachers' }
     })
     ;
     

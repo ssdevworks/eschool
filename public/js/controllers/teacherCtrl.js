@@ -1,13 +1,12 @@
 	// public/js/controllers/authCtrl.js
 	angular.module('teacherCtrl', [])
 
-.controller('addTeacherController', function ($scope, $http, $window) {
+.controller('AddTeacherController', function ($scope, $http, $window) {
   console.log("Teacher Controller  new reporting for duty.");
   $scope.teacher = {};
   $scope.submitted = false;
   $http.get("/api/teacher/new").then(function(response) {
   	var respData = response.data;
-    console.log(response);
     $scope.genders = respData.genders;  
     $scope.subjects = respData.subjects;  
     $scope.marital_status = respData.marital_status;
@@ -24,15 +23,19 @@
           headers: { 'Content-Type' : 'application/x-www-form-urlencoded' },
           data: $.param($scope.teacher)
         }).success(function(data){
-
-          console.log(data)
           $scope.msgDisplay = true;
           $scope.sucClass = data.success;
-          $scope.errClass = !data.success;
           $scope.notifyMsg = data.message;
+          if (data.success) {
+            $scope.resetForm();
+          }
         })
     console.log('form submitted');
   } 
+  $scope.resetForm = function() {    
+    $scope.teacher= {};
+    $scope.addTeacher.$setPristine();
+  }
 
   $scope.hasError = function(field, validation){
     if(validation){
@@ -40,4 +43,15 @@
     }
     return ($scope.addTeacher[field].$dirty && $scope.addTeacher[field].$invalid) || ($scope.submitted && $scope.addTeacher[field].$invalid);
   };
-});
+})
+.controller('ListTeacherController', function ($scope, $http, $window) {
+  console.log("List Teacher Controller  new reporting for duty.");
+  $scope.teachers = {};
+  $scope.submitted = false;
+  $http.get("/api/teacher/list").then(function(response) {
+    $scope.teachers = response.data;
+        
+    })
+  
+})
+;

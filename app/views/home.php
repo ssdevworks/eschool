@@ -276,7 +276,7 @@
                             <a class="active" href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="#" ui-sref="teacher" ><i class="fa fa-bar-chart-o fa-fw"></i> Teacher<span class="fa arrow"></span></a>
+                            <a href="#" ui-sref="teacher.list" ><i class="fa fa-bar-chart-o fa-fw"></i> Teacher<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="#" ui-sref="teacher.new">Add Teacher</a>

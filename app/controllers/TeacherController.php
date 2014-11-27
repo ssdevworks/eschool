@@ -33,7 +33,7 @@ class TeacherController extends \BaseController {
 	public function store()
 	{
 		$response  = array('success' => true, 'error_code' => 0, 'message' => '');		
-		$validator = Validator::make(Input::all(), Teacher::$rules);
+		$validator = Validator::make(Input::all(), Teacher::rules());
 
 		if ($validator->fails()) {
 			$errorMsg = '';
@@ -83,6 +83,13 @@ class TeacherController extends \BaseController {
 		//
 	}
 
+	public function listView()
+	{
+		$teachers = Teacher::getTeacherList();
+		
+		return Response::json($teachers);
+	}
+
 
 	/**
 	 * Show the form for editing the specified resource.
@@ -92,7 +99,7 @@ class TeacherController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$user = User::find($id);
 	}
 
 
