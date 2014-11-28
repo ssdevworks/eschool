@@ -23,7 +23,7 @@
                                             <td>{{teacher.subject}}</td>
                                             <td>{{teacher.email}}</td>
                                             <td>{{teacher.mobile}}</td>
-                                            <td>Edit</td>
+                                            <td><a ng-href="/teacher/edit/{{teacher.id}}">Edit</a></td>
                                         </tr>  
                                         <tr class = "odd"  ng-if="teachers.length == 0"  >
                                         	<td align="center" colspan="7">No records found</td>

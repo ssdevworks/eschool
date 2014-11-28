@@ -78,6 +78,14 @@ app.config([
     templateUrl: '/partials/teacher.list.html',
     data : { stateTitle: 'List Teachers' }
     })
+    .state('teacher.edit', {
+        url: '/edit/:id',
+        templateUrl: '/partials/teacher.edit.html',
+        data : { stateTitle: 'Edit Teacher Details' },
+        controller: function($scope, $stateParams){
+          $scope.teacherId = $stateParams.id;
+        }
+    })
     ;
     
     $locationProvider.html5Mode(true);//.hashPrefix('!');

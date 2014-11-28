@@ -6,7 +6,7 @@
             </div>
 
             <div class="panel-body">
-                 <form name = 'addTeacher' role="form" ng-controller="AddTeacherController" ng-submit="addNewTeacher()" novalidate>
+                 <form name = 'editTeacher' role="form" ng-controller="EditTeacherController" ng-submit="updateTeacher()" novalidate>
                 <div class="alert" ng-show="msgDisplay" ng-class="{'alert-success': sucClass, 'alert-danger': !sucClass}">
                  {{notifyMsg}}
                 </div>
@@ -22,9 +22,9 @@
 
                             <div class="form-group required" ng-class="{'has-error' : hasError('gender')}">
                                 <label>Gender</label>
-                                <select class="form-control" ng-model="teacher.gender" name="gender" required>
+                                <select class="form-control"  ng-model="teacher.gender" ng-options="key as gender for (key , gender) in genders " name="gender" required>
                                     <option value="">Select gender</option>
-                                    <option  ng-repeat="(id, gender) in genders" value="{{id}}">{{gender}}</option>          
+                                           
                                 </select>
                                 <p class="help-block" ng-show="hasError('gender', 'required')" >Your gender is required</p>   
                             </div>
@@ -54,9 +54,8 @@
                             
                              <div class="form-group">
                                 <label>Marital Status</label>
-                                <select class="form-control" ng-model="teacher.marital">
-                                    <option value="">Select marital status</option>
-                                    <option  ng-repeat="(id,marital) in marital_status" value="{{id}}">{{marital}}</option>    
+                                <select class="form-control" ng-model="teacher.marital_status"  ng-options="id as marital for (id , marital) in marital_status ">
+                                    <option value="">Select marital status</option>                                      
                                 </select>
                             </div>
                                                                     
@@ -94,9 +93,8 @@
 
                         <div class="form-group required" ng-class="{'has-error' : hasError('subject')}">
                             <label>Subject Incharge</label>
-                            <select class="form-control" name="subject" ng-model="teacher.subject" required>
-                                <option value="">Select subject</option>
-                                <option  ng-repeat="(id,subject) in subjects" value="{{id}}">{{subject}}</option>
+                            <select class="form-control" name="subject" ng-model="teacher.subject" ng-options="id as subject for (id , subject) in subjects" required>
+                                <option value="">Select subject</option>                                
                             </select>
                             <p class="help-block" ng-show="hasError('subject', 'required')" >Subject is required</p>
                         </div>
@@ -108,9 +106,8 @@
 
                         <div class="form-group">
                             <label>Blood Group</label>
-                            <select class="form-control" ng-model="teacher.blood_group">
-                                <option value="">Select blood group</option>
-                                <option  ng-repeat="(id, bloodgroup) in blood_groups" value="{{id}}">{{bloodgroup}}</option> 
+                            <select class="form-control" ng-model="teacher.blood_group" ng-options="id as blood_group for (id , blood_group) in blood_groups" >
+                                <option value="">Select blood group</option>                               
                             </select>
                         </div>
                     </div>

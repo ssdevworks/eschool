@@ -60,8 +60,8 @@ class TeacherController extends \BaseController {
 			$teacher->subject = Input::get('subject');
 			$teacher->qualification = Input::get('qualification');
 			$teacher->experience = Input::get('experience');
-			$teacher->marital_status = Input::get('marital');
-			$teacher->blood_group = Input::get('bloodgrp');
+			$teacher->marital_status = Input::get('marital_status');
+			$teacher->blood_group = Input::get('blood_group');
 			$teacher->user_id = $user->id;
 			$teacher->save();
 
@@ -99,7 +99,21 @@ class TeacherController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		$user = User::find($id);
+		$gender = Config::get('sitevars.gender');
+		$maritalStatus = Config::get('sitevars.marital_status');
+		$bloodGroup = Config::get('sitevars.blood_groups');
+		$subjects = Subject::getSubjectList();
+		$teacher = Teacher::find($id);
+		$teacher['email'] = $teacher->user()->first()->email;
+		$response = array (
+			'genders' => $gender,
+			'subjects' => $subjects,
+			'marital_status' => $maritalStatus,
+			'blood_groups' => $bloodGroup,
+			'teacher' => $teacher
+		);
+
+		return Response::json($response);		
 	}
 
 
