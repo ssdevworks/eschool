@@ -9,6 +9,7 @@ var app = angular.module('eSchoolApp', [
     'authCtrl',
     'homeCtrl',
     'teacherCtrl',
+    'studentCtrl',
 ]);
 
 
@@ -63,10 +64,7 @@ app.config([
     url: '/teacher',
     abstract: true,
     templateUrl: '/partials/teacher.html',
-    data : { stateTitle: 'List' }
-    /*controller: function($scope){
-      $scope.contacts = [{ name: 'Alice' }, { name: 'Bob' }];
-    }*/
+    data : { stateTitle: 'List' }    
     })
     .state('teacher.new', {
     url: '/new',
@@ -84,6 +82,46 @@ app.config([
         data : { stateTitle: 'Edit Teacher Details' },
         controller: function($scope, $stateParams){
           $scope.teacherId = $stateParams.id;
+        }
+    })
+    .state('teacher.details', {
+        url: '/details/:id',
+        templateUrl: '/partials/teacher.details.html',
+        data : { stateTitle: 'Details' },
+        controller: function($scope, $stateParams){
+          $scope.teacherId = $stateParams.id;
+        }
+    })
+    .state('student', {
+    url: '/student',
+    abstract: true,
+    templateUrl: '/partials/student.html',
+    data : { stateTitle: 'List' }    
+    })
+    .state('student.new', {
+    url: '/new',
+    templateUrl: '/partials/student.new.html',
+    data : { stateTitle: 'Add New Student' }
+    })
+    .state('student.list', {
+    url: '',
+    templateUrl: '/partials/student.list.html',
+    data : { stateTitle: 'List Students' }
+    })
+    .state('student.edit', {
+        url: '/edit/:id',
+        templateUrl: '/partials/student.edit.html',
+        data : { stateTitle: 'Edit student Details' },
+        controller: function($scope, $stateParams){
+          $scope.studentId = $stateParams.id;
+        }
+    })
+    .state('student.details', {
+        url: '/details/:id',
+        templateUrl: '/partials/student.details.html',
+        data : { stateTitle: 'Details' },
+        controller: function($scope, $stateParams){
+          $scope.studentId = $stateParams.id;
         }
     })
     ;

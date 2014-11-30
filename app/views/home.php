@@ -273,7 +273,7 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a class="active" href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a class="active" href="/home"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
                             <a href="#" ui-sref="teacher.list" ><i class="fa fa-bar-chart-o fa-fw"></i> Teacher<span class="fa arrow"></span></a>
@@ -281,11 +281,17 @@
                                 <li>
                                     <a href="#" ui-sref="teacher.new">Add Teacher</a>
                                 </li>
+                                
+                            </ul>                            
+                        </li>
+                        <li>
+                            <a href="#" ui-sref="student.list" ><i class="fa fa-bar-chart-o fa-fw"></i> Student<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="morris.html">Morris.js Charts</a>
+                                    <a href="#" ui-sref="student.new">Add Student</a>
                                 </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
+                                
+                            </ul>                            
                         </li>
                         <li>
                             <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
@@ -393,7 +399,8 @@
    <script src="/js/libs/angular-cookies.js"></script>
    <script src="/js/controllers/authCtrl.js"></script> 
    <script src="/js/controllers/homeCtrl.js"></script>
-   <script src="/js/controllers/teacherCtrl.js"></script> 
+   <script src="/js/controllers/teacherCtrl.js"></script>
+   <script src="/js/controllers/studentCtrl.js"></script> 
    <script src="/js/main.js"></script>
 	<script src="/js/libs/jquery.min.js"></script>	
    <script src="/js/libs/bootstrap.min.js"></script>

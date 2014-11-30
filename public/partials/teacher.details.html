@@ -1,0 +1,76 @@
+<section ng-controller="TeacherDetailsController">
+<div class="row">
+<div class="col-lg-12">
+                        <div class="panel panel-default">
+                        <div class="panel-heading clearfix">
+                           Showing {{teacher.fname}}'s details
+                           <div class="btn-group pull-right">
+                            <a href="#"  title="go back" ui-sref="teacher.list" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span></a>                     
+                            </div>
+                        </div>
+                        <div class="panel-body">
+
+                             <div class="table-responsive">
+                                <table class="table table-bordered table-striped">
+                                    
+                                    <tbody>
+                                        <tr>
+                                            <th class="col-md-2" >First Name</th>
+                                            <td colspan="3">{{teacher.fname}}</td>                                        
+                                        </tr>
+                                        <tr>
+                                            <th class="col-md-2" >Last Name</th>
+                                            <td colspan="3">{{teacher.lname}}</td>                                        
+                                        </tr>
+                                        <tr>
+                                            <th class="col-md-2" >Gender</th>
+                                            <td colspan="3">{{teacher.gender}}</td>                                        
+                                        </tr>
+                                        <tr>
+                                            <th class="col-md-2" >Date of Birth</th>
+                                            <td colspan="3">{{teacher.dob}}</td>                                        
+                                        </tr>
+                                        <tr>
+                                            <th class="col-md-2" >Email</th>
+                                            <td colspan="3">{{teacher.email}}</td>                                        
+                                        </tr>
+                                        <tr>
+                                            <th class="col-md-2" >Mobile Number</th>
+                                            <td colspan="3">{{teacher.mobile}}</td>                                        
+                                        </tr>
+                                        <tr>
+                                            <th class="col-md-2" >Date of Joining</th>
+                                            <td colspan="3">{{teacher.doj}}</td>                                        
+                                        </tr>
+                                        <tr>
+                                            <th class="col-md-2" >Subject Incharge</th>
+                                            <td colspan="3">{{teacher.subject}}</td>                                        
+                                        </tr>
+                                        <tr>
+                                            <th class="col-md-2" >Qualification</th>
+                                            <td colspan="3">{{teacher.qualification}}</td>                                     
+                                        </tr>
+                                        <tr>
+                                            <th class="col-md-2" >Experience</th>
+                                            <td colspan="3">{{teacher.experience}}</td>                                        
+                                        </tr>
+                                        <tr>
+                                            <th class="col-md-2" >Marital Status</th>
+                                            <td colspan="3">{{teacher.marital_status}}</td>                                        
+                                        </tr>
+                                        <tr>
+                                            <th class="col-md-2" >Blood Group</th>
+                                            <td colspan="3">{{teacher.blood_group}}</td>                                        
+                                        </tr>
+                                                                          
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+</div>
+                           
+</section>

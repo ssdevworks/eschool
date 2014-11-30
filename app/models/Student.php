@@ -1,7 +1,8 @@
 <?php
-class Teacher extends Eloquent {
+class Student extends Eloquent {
         // let eloquent know that these attributes will be available for mass assignment
-	protected $fillable = array('subject_name',); 
+	protected $fillable = array('class_name',); 
+
 
 	public static function rules($teacherId = '', $userId = '') 
 	{		
@@ -13,30 +14,23 @@ class Teacher extends Eloquent {
 		'email'    => 'required|email|unique:users,email,' . $userId, 
 		'mobile' => 'required|digits:10|unique:teachers,mobile,' . $teacherId,
 		'doj' => 'required|date',
-		'subject' => 'required|integer',
-		'qualification' => 'max:70',
-		'experience' => 'max:30',
-		'marital_status' => 'integer',
+		'class_room_id' => 'required|integer',
+		'native' => 'max:70',
 		'blood_group' => 'integer',
 		);
 
 		return $rules;
 	}
+
+	public function classRoom() 
+	{		
+		return $this->belongsTo('ClassRoom', 'class_room_id', 'id');
+	}
+
 	public function user() 
 	{		
 		return $this->hasOne('User', 'id', 'user_id');
 	}
-
-	public function subject() 
-	{		
-		return $this->hasOne('Subject', 'id', 'subject');
-	}
-
-	public function classRoom()
-    {
-        return $this->belongsTo('ClassRoom', 'teacher_id', 'id');
-    }
-
 	public function toSoA()
 	{
 		$gender = Config::get('sitevars.gender');
@@ -47,19 +41,19 @@ class Teacher extends Eloquent {
 		$tmp['gender'] = $gender[$this->gender];
 		$tmp['mobile'] = $this->mobile;
 		$tmp['email'] = $this->user()->first()->email;
-		$tmp['subject'] = ucfirst($this->subject()->first()->subject_name);
+		$tmp['class_name'] = ucfirst($this->classroom()->first()->class_name);
 		return $tmp;
 	}
 
-	public static function getTeacherList()
+	public static function getStudentsList()
 	{
-		$teacherList = array();		
-		$teachers = self::where('status', '=', 1)->get();
-		foreach ($teachers as $teacher) {			
-			$teacherList[] = $teacher->toSoA();
+		$studentsList = array();		
+		$students = self::where('status', '=', 1)->get();
+		foreach ($students as $student) {			
+			$studentsList[] = $student->toSoA();
 	    }
 
-	    return $teacherList;
+	    return $studentsList;
 	}
 
 }

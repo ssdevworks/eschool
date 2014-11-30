@@ -57,13 +57,13 @@
     $scope.blood_groups = respData.blood_groups;
     $scope.teacher = respData.teacher;
     })
-  $scope.addNewTeacher = function() {
+  $scope.updateTeacher = function() {
     $scope.submitted = true;
     $scope.msgDisplay = false;
     if(!$scope.editTeacher.$valid) {return;}
     $http({
           method: 'POST',
-          url: '/api/teacher/new',
+          url: '/api/teacher/edit/' + $scope.teacherId,
           headers: { 'Content-Type' : 'application/x-www-form-urlencoded' },
           data: $.param($scope.teacher)
         }).success(function(data){
@@ -71,7 +71,7 @@
           $scope.sucClass = data.success;
           $scope.notifyMsg = data.message;
           if (data.success) {
-            $scope.resetForm();
+            
           }
         })
     console.log('form submitted');
@@ -91,11 +91,17 @@
 .controller('ListTeacherController', function ($scope, $http, $window) {
   console.log("List Teacher Controller  new reporting for duty.");
   $scope.teachers = {};
-  $scope.submitted = false;
   $http.get("/api/teacher/list").then(function(response) {
     $scope.teachers = response.data;
         
-    })
-  
+    })  
+})
+.controller('TeacherDetailsController', function ($scope, $http, $window) {
+  console.log("Details Teacher Controller  new reporting for duty.");
+  $scope.teacher = {};
+  $http.get("/api/teacher/details/" + $scope.teacherId).then(function(response) {
+    $scope.teacher = response.data.teacher;
+        
+    })  
 })
 ;

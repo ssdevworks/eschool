@@ -52,6 +52,7 @@
    <script src="/js/controllers/authCtrl.js"></script> 
    <script src="/js/controllers/homeCtrl.js"></script> 
    <script src="/js/controllers/teacherCtrl.js"></script> 
+   <script src="/js/controllers/studentCtrl.js"></script> 
    <script src="/js/main.js"></script>
 	<script src="/js/libs/jquery.min.js"></script>	
    <script src="/js/libs/bootstrap.min.js"></script>

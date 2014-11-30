@@ -52,7 +52,16 @@ Route::group(array('prefix' => 'api'), function() {
 		Route::get('teacher/new', array('uses' => 'TeacherController@create'));
 		Route::post('teacher/new', array('uses' => 'TeacherController@store'));
 		Route::get('teacher/edit/{id}', array('uses' => 'TeacherController@edit'));
+		Route::post('teacher/edit/{id}', array('uses' => 'TeacherController@update'));
 		Route::get('teacher/list', array('uses' => 'TeacherController@listView'));
+		Route::get('teacher/details/{id}', array('uses' => 'TeacherController@details'));
+
+		Route::get('student/new', array('uses' => 'StudentController@create'));
+		Route::post('student/new', array('uses' => 'StudentController@store'));
+		Route::get('student/list', array('uses' => 'StudentController@listView'));
+		Route::get('student/edit/{id}', array('uses' => 'StudentController@edit'));
+		Route::post('student/edit/{id}', array('uses' => 'StudentController@update'));
+		Route::get('student/details/{id}', array('uses' => 'StudentController@details'));
 	});
 });
 
