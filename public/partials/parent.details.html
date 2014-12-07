@@ -1,0 +1,56 @@
+<section ng-controller="ParentDetailsController">
+<div class="row">
+<div class="col-lg-12">
+                        <div class="panel panel-default">
+                        <div class="panel-heading clearfix">
+                           Showing {{parent.fname}}'s details
+                           <div class="btn-group pull-right">
+                            <a href="#"  title="go back" ui-sref="parent.list" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span></a>                     
+                            </div>
+                        </div>
+                        <div class="panel-body">
+
+                             <div class="table-responsive">
+                                <table class="table table-bordered table-striped">
+                                    
+                                    <tbody>
+                                        <tr>
+                                            <th class="col-md-2" >First Name</th>
+                                            <td colspan="3">{{parent.fname}}</td>                                        
+                                        </tr>
+                                        <tr>
+                                            <th class="col-md-2" >Last Name</th>
+                                            <td colspan="3">{{parent.lname}}</td>                                        
+                                        </tr>
+                                        <tr>
+                                            <th class="col-md-2" >Email</th>
+                                            <td colspan="3">{{parent.email}}</td>                                        
+                                        </tr>
+                                        <tr>
+                                            <th class="col-md-2" >Mobile Number</th>
+                                            <td colspan="3">{{parent.mobile}}</td>                                        
+                                        </tr>
+                                        <tr>
+                                            <th class="col-md-2" >Student Name</th>
+                                            <td colspan="3">{{parent.student}}</td>                                        
+                                        </tr>
+                                        <tr>
+                                            <th class="col-md-2" >Class Room</th>
+                                            <td colspan="3">{{parent.class_name}}</td>                                        
+                                        </tr>
+                                        <tr>
+                                            <th class="col-md-2" >Relation</th>
+                                            <td colspan="3">{{parent.relation}}</td>                                     
+                                        </tr>
+                                                                                                                  
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+</div>
+                           
+</section>

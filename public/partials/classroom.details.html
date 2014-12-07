@@ -1,0 +1,35 @@
+<section ng-controller="ClassRoomDetailsController">
+<div class="row">
+<div class="col-lg-12">
+                        <div class="panel panel-default">
+                        <div class="panel-heading clearfix">
+                           Showing {{classroom.class_name}}'s details
+                           <div class="btn-group pull-right">
+                            <a href="#"  title="go back" ui-sref="classroom.list" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span></a>                     
+                            </div>
+                        </div>
+                        <div class="panel-body">
+
+                             <div class="table-responsive">
+                                <table class="table table-bordered table-striped">
+                                    
+                                    <tbody>
+                                        <tr>
+                                            <th class="col-md-2" >Class Room Name</th>
+                                            <td colspan="3">{{classRoom.class_name}}</td>                                       
+                                        </tr>
+                                        <tr>
+                                            <th class="col-md-2" >Class Teacher Name</th>
+                                            <td colspan="3">{{classRoom.teacher_name}}</td>                                     
+                                        </tr>                                                                                  
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+</div>
+                           
+</section>

@@ -10,6 +10,8 @@ var app = angular.module('eSchoolApp', [
     'homeCtrl',
     'teacherCtrl',
     'studentCtrl',
+    'parentCtrl',
+    'classRoomCtrl',
 ]);
 
 
@@ -111,7 +113,7 @@ app.config([
     .state('student.edit', {
         url: '/edit/:id',
         templateUrl: '/partials/student.edit.html',
-        data : { stateTitle: 'Edit student Details' },
+        data : { stateTitle: 'Edit Student Details' },
         controller: function($scope, $stateParams){
           $scope.studentId = $stateParams.id;
         }
@@ -122,6 +124,70 @@ app.config([
         data : { stateTitle: 'Details' },
         controller: function($scope, $stateParams){
           $scope.studentId = $stateParams.id;
+        }
+    })
+    .state('parent', {
+    url: '/parent',
+    abstract: true,
+    templateUrl: '/partials/parent.html',
+    data : { stateTitle: 'List' }    
+    })
+    .state('parent.new', {
+    url: '/new',
+    templateUrl: '/partials/parent.new.html',
+    data : { stateTitle: 'Add New Parent' }
+    })
+    .state('parent.edit', {
+        url: '/edit/:id',
+        templateUrl: '/partials/parent.edit.html',
+        data : { stateTitle: 'Edit Parent Details' },
+        controller: function($scope, $stateParams){
+          $scope.parentId = $stateParams.id;
+        }
+    })
+    .state('parent.list', {
+    url: '',
+    templateUrl: '/partials/parent.list.html',
+    data : { stateTitle: 'List Parents' }
+    })
+    .state('parent.details', {
+        url: '/details/:id',
+        templateUrl: '/partials/parent.details.html',
+        data : { stateTitle: 'Details' },
+        controller: function($scope, $stateParams){
+          $scope.parentId = $stateParams.id;
+        }
+    })
+    .state('classroom', {
+    url: '/classroom',
+    abstract: true,
+    templateUrl: '/partials/classroom.html',
+    data : { stateTitle: 'List' }    
+    })
+    .state('classroom.new', {
+    url: '/new',
+    templateUrl: '/partials/classroom.new.html',
+    data : { stateTitle: 'Add New Class Room' }
+    })
+    .state('classroom.list', {
+    url: '',
+    templateUrl: '/partials/classroom.list.html',
+    data : { stateTitle: 'List Class Rooms' }
+    })
+    .state('classroom.details', {
+        url: '/details/:id',
+        templateUrl: '/partials/classroom.details.html',
+        data : { stateTitle: 'Details' },
+        controller: function($scope, $stateParams){
+          $scope.classRoomId = $stateParams.id;
+        }
+    })
+    .state('classroom.edit', {
+        url: '/edit/:id',
+        templateUrl: '/partials/classroom.edit.html',
+        data : { stateTitle: 'Edit Class Room Details' },
+        controller: function($scope, $stateParams){
+          $scope.classRoomId = $stateParams.id;
         }
     })
     ;

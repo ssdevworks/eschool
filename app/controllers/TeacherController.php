@@ -8,7 +8,7 @@ class TeacherController extends \BaseController {
 	 * @return Response
 	 */
 	public function create()
-	{
+	{		
 		$gender = Config::get('sitevars.gender');
 		$maritalStatus = Config::get('sitevars.marital_status');
 		$bloodGroup = Config::get('sitevars.blood_groups');

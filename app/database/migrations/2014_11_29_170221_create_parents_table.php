@@ -21,7 +21,8 @@ class CreateParentsTable extends Migration {
 			$table->string('mobile', 14);
 			$table->tinyInteger('relation')->unsigned()->default(0);
 			$table->integer('student_id')->unsigned();
-			$table->tinyInteger('status')->default(1);			
+			$table->tinyInteger('status')->default(1);
+			$table->integer('user_id')->unsigned();
 			$table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');
 			$table->timestamps();
 		});

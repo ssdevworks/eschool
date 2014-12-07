@@ -294,6 +294,24 @@
                             </ul>                            
                         </li>
                         <li>
+                            <a href="#" ui-sref="parent.list" ><i class="fa fa-bar-chart-o fa-fw"></i> Parent<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#" ui-sref="parent.new">Add Parent</a>
+                                </li>
+                                
+                            </ul>                            
+                        </li>
+                        <li>
+                            <a href="#" ui-sref="classroom.list" ><i class="fa fa-bar-chart-o fa-fw"></i> Class Room<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#" ui-sref="classroom.new">Add Class Room</a>
+                                </li>
+                                
+                            </ul>                            
+                        </li>
+                        <li>
                             <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
                         </li>
                         <li>
@@ -401,6 +419,8 @@
    <script src="/js/controllers/homeCtrl.js"></script>
    <script src="/js/controllers/teacherCtrl.js"></script>
    <script src="/js/controllers/studentCtrl.js"></script> 
+   <script src="/js/controllers/parentCtrl.js"></script> 
+   <script src="/js/controllers/classRoomCtrl.js"></script>
    <script src="/js/main.js"></script>
 	<script src="/js/libs/jquery.min.js"></script>	
    <script src="/js/libs/bootstrap.min.js"></script>

@@ -12,7 +12,7 @@ class Student extends Eloquent {
 		'gender' => 'required|integer',
 		'dob' => 'required|date',
 		'email'    => 'required|email|unique:users,email,' . $userId, 
-		'mobile' => 'required|digits:10|unique:teachers,mobile,' . $teacherId,
+		'mobile' => 'required|digits:10|unique:students,mobile,' . $teacherId,
 		'doj' => 'required|date',
 		'class_room_id' => 'required|integer',
 		'native' => 'max:70',
@@ -30,6 +30,11 @@ class Student extends Eloquent {
 	public function user() 
 	{		
 		return $this->hasOne('User', 'id', 'user_id');
+	}
+
+	public function parents() 
+	{		
+		return $this->belongsTo('Parents', 'student_id', 'id');
 	}
 	public function toSoA()
 	{

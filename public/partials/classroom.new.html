@@ -1,0 +1,50 @@
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Fields with <label class="required_red">*</label> are mandatory
+            </div>
+
+            <div class="panel-body">
+                 <form name = 'addClassRoom' role="form" ng-controller="AddClassRoomController" ng-submit="addNewClassRoom()" novalidate>
+                <div class="alert" ng-show="msgDisplay" ng-class="{'alert-success': sucClass, 'alert-danger': !sucClass}">
+                 {{notifyMsg}}
+                </div>
+                <div class="row">                   
+                    <div class="col-lg-6">
+                        
+                            <div class="form-group required" ng-class="{'has-error' : hasError('class_name')}">
+                                <label>Class Name</label>
+                                <input class="form-control" name="class_name"  ng-maxlength="30" ng-model="classRoom.class_name" placeholder="Class room name" required >
+                                <p class="help-block" ng-show="hasError('class_name', 'required')" >Class name is required.</p>
+                                <p class="help-block" ng-show="hasError('class_name', 'maxlength')" >Class name should be a max of 30.</p>
+                            </div>
+
+                           
+                            <button type="submit" class="btn btn-success">Add ClassRoom</button>
+                            <button type="reset" class="btn btn-danger" ng-click="resetForm()">Reset Form</button>
+                        
+                    </div>
+                    <!-- /.col-lg-6 (nested) -->
+                    <div class="col-lg-6">
+                    
+                        <div class="form-group required" ng-class="{'has-error' : hasError('teacher_id')}">
+                            <label>Class Teacher</label>
+                            <select class="form-control" name="teacher_id"  ng-options="id as teacher_name for (id, teacher_name) in teachers" ng-model="classRoom.teacher_id" required>
+                                <option value="">Select teacher</option>
+                            </select>
+                            <p class="help-block" ng-show="hasError('teacher_id', 'required')" >Select a teacher name</p>
+                        </div>
+                   </div>
+                
+                    <!-- /.col-lg-6 (nested) -->
+                </div>
+                <!-- /.row (nested) -->
+                </form>
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>

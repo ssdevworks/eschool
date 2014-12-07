@@ -62,6 +62,20 @@ Route::group(array('prefix' => 'api'), function() {
 		Route::get('student/edit/{id}', array('uses' => 'StudentController@edit'));
 		Route::post('student/edit/{id}', array('uses' => 'StudentController@update'));
 		Route::get('student/details/{id}', array('uses' => 'StudentController@details'));
+
+		Route::get('parent/new', array('uses' => 'ParentController@create'));
+		Route::post('parent/new', array('uses' => 'ParentController@store'));
+		Route::get('parent/list', array('uses' => 'ParentController@listView'));
+		Route::get('parent/details/{id}', array('uses' => 'ParentController@show'));
+		Route::get('parent/edit/{id}', array('uses' => 'ParentController@edit'));
+		Route::post('parent/edit/{id}', array('uses' => 'ParentController@update'));
+
+		Route::get('classroom/new', array('uses' => 'ClassRoomController@create'));
+		Route::post('classroom/new', array('uses' => 'ClassRoomController@store'));
+		Route::get('classroom/list', array('uses' => 'ClassRoomController@listView'));
+		Route::get('classroom/edit/{id}', array('uses' => 'ClassRoomController@edit'));
+		Route::post('classroom/edit/{id}', array('uses' => 'ClassRoomController@update'));
+		Route::get('classroom/details/{id}', array('uses' => 'ClassRoomController@show'));
 	});
 });
 

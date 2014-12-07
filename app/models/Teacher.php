@@ -62,4 +62,11 @@ class Teacher extends Eloquent {
 	    return $teacherList;
 	}
 
+	public sendMail()
+	{
+		Mail::send('emails.test', array('fName'=>$this->fname), function($message) {
+    		$message->to('eschool.mailer@gmail.com', 'Jon Doe')->subject('New teacher in eschool');
+		});
+	}
+
 }
